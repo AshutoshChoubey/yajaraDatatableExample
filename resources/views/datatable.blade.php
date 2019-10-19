@@ -35,18 +35,7 @@
     </head>
     <body>
         <div class="container">
-          <!--  <table class="table table-bordered" id="users-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                    </tr>
-                </thead>
-            </table> -->
+         
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
@@ -87,40 +76,13 @@
                 </tfoot>
             </table>
         </div>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.3.1/handlebars.min.js" integrity="sha256-2i93NJ4al2OcU9jFNXPMUF2X9xSFRFbTl5X06omT9CM=" crossorigin="anonymous"></script> -->
-        <!-- jQuery -->
        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
         <!-- Bootstrap JavaScript -->
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="//cdn.datatables.net/plug-ins/1.10.19/sorting/absolute.js"></script>
-
-        <!-- App scripts -orderCellsTop: true,->
-        @stack('scripts')
-    </body>
-     <script id="details-template" type="text/x-handlebars-template">
-        <div class="label label-info">User's Ashutosh Kumar Choubey Posts</div>
-        <table class="table details-table" id="posts-1">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-            </tr>
-            </thead>
-        </table>
-    </script>
-
-
-
-
-
-
-
-
-
-
-   <!--  <script type="text/javascript">
+     <!-- <script type="text/javascript">
         $(function() {
             $('#users-table').DataTable({
                 processing: true,
@@ -135,15 +97,13 @@
                 ]
             });
         });
-    </script> -->
+    </script>  -->
     <script type="text/javascript">
 
 
 
         /* Formatting function for row details - modify as you need */
 function format ( d ) {
-    // `d` is the original data object for the row
-    // console.log('d',d);
     return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
     '<tr>'+
             '<td>User Id:</td>'+
@@ -170,9 +130,8 @@ function format ( d ) {
  
 $(document).ready(function() {
     var nameType = $.fn.dataTable.absoluteOrder( 'Pending' );
-
-
-    var table = $('#example').DataTable( {
+    var table = $('#example').DataTable( 
+        {
         rowGroup: {
         dataSrc: 'status'
     },
@@ -196,9 +155,6 @@ $(document).ready(function() {
             { "data": "email" },
             { "data": "status" ,
                 "createdCell": function (td, cellData, rowData, row, col) {
-                    // console.log(td)
-                    // console.log(cellData)
-                    // $(td).removeClass("intro");
                             if (cellData =='Active') {
                                 $(td).addClass('alert-success');
                                 $(td).addClass('sorting_1');
@@ -239,12 +195,13 @@ $(document).ready(function() {
             tr.addClass('shown');
         }
     } );
-
-    // $("example tbody")
-
-
-
 } );
+
+
+
+
+
+
 
 
 

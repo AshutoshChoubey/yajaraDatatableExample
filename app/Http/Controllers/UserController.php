@@ -52,7 +52,6 @@ class UserController extends Controller
     // }
     public function getUser()
     {
-        // return Datatables::of(User::query())->make(true);
         $model = DB::table('users')->where('status','<>' , 2)->orderBy('status', 'DESC');;
         // dd($model);
         return Datatables::of($model)

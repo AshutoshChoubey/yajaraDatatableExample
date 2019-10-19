@@ -26,7 +26,7 @@ Route::get('/datatable', function()
 {
     $model1 = DB::table('users')->where('status','=',2)->orderBy('status', 'DESC')->get();
     return view('datatable',['pendingData'=>$model1]);
-});
-Route::get('/user', 'UserController@getUser')->name('datatables.data');
+})->middleware(['cors']);
+Route::get('/user', 'UserController@getUser')->name('datatables.data')->middleware(['cors']);
 Route::get('/jqueryvalidation', 'UserController@jqueryValidation');
 Route::post('/registerUser', 'UserController@registerUser');
